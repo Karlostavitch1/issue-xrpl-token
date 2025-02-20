@@ -24,7 +24,20 @@
     "win": {
       "target": "portable",
       "icon": "assets/icon.ico"
-    }
+    },
+    "extraResources": [
+      {
+        "from": "node_modules/ffmpeg-static/",
+        "to": "ffmpeg",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "asar": false,
+    "extraFiles": [
+      "*.dll"
+    ]
   },
   "keywords": [
     "xrpl",
@@ -35,6 +48,7 @@
   "license": "MIT",
   "dependencies": {
     "electron-store": "^8.2.0",
+    "ffmpeg-static": "^5.2.0",
     "xrpl": "^4.2.0"
   },
   "devDependencies": {
