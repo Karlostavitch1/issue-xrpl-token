@@ -18,11 +18,10 @@ A desktop application for creating and managing tokens on the XRP Ledger (XRPL).
 1. **Financial Loss**: Incorrect usage could result in:
    - Loss of XRP through incorrect transactions
    - Irreversible token creation mistakes
-   - Unrecoverable wallet access if seeds are not properly saved
+   - Unrecoverable wallet access if private keys are not properly secured
 
 2. **Security Considerations**:
-   - Wallet seeds are displayed during creation
-   - Seeds must be securely stored by the user
+   - Private keys must be securely stored
    - No encryption of sensitive data in memory
 
 3. **Network Risks**:
@@ -33,7 +32,7 @@ A desktop application for creating and managing tokens on the XRP Ledger (XRPL).
 ## Features
 
 - Step-by-step token creation wizard
-- Wallet creation with backup options
+- Secure wallet generation
 - Automatic testnet funding
 - Real-time balance checking
 - Transaction tracking with explorer links
@@ -50,8 +49,8 @@ A desktop application for creating and managing tokens on the XRP Ledger (XRPL).
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/xrpl-token-creation.git
-cd xrpl-token-creation
+git clone https://github.com/Karlostavitch1/issue-xrpl-token.git
+cd issue-xrpl-token
 
 # Install dependencies
 npm install
@@ -66,7 +65,7 @@ npm run dev
 ## Project Structure
 
 ```
-xrpl-token-creation/
+issue-xrpl-token/
 ├── src/
 │   ├── main/              # Main process
 │   │   ├── main.js        # Main electron process
@@ -89,7 +88,7 @@ xrpl-token-creation/
 
 2. **Wallet Setup**
    - Create new wallets or import existing ones
-   - **CRITICAL**: Save all wallet recovery information
+   - **CRITICAL**: Securely store private keys
    - Verify wallet balances before proceeding
 
 3. **Token Configuration**
@@ -108,7 +107,7 @@ xrpl-token-creation/
 - CSP headers implemented
 - Secure IPC communication
 - No remote code execution
-- Wallet seed protection
+- Private key protection
 
 ## Development
 
@@ -175,8 +174,8 @@ THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 
 The user assumes all responsibility for:
 - Understanding the code
-- Securing wallet information
+- Securing private keys
 - Managing XRP funds
 - Token creation outcomes
 - Network transaction fees
-- Any potential losses "# issue-xrpl-token" 
+- Any potential losses

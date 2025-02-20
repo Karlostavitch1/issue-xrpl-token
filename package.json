@@ -1,0 +1,43 @@
+{
+  "name": "xrpl-token-creation",
+  "version": "1.0.0",
+  "description": "A Windows application for XRPL token creation",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist && rimraf node_modules/.cache/electron-builder",
+    "build": "npm run clean && electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.xrpl.tokencreation",
+    "productName": "XRPL Token Creation Wizard",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "dir"
+    }
+  },
+  "keywords": [
+    "xrpl",
+    "token",
+    "cryptocurrency"
+  ],
+  "author": "Karl Lehnert",
+  "license": "MIT",
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "xrpl": "^4.2.0"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
+    "rimraf": "^5.0.5"
+  }
+}

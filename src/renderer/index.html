@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XRPL Token Creation Wizard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wizard-container">
+            <div class="wizard-header">
+                <h1>XRPL Token Creation Wizard</h1>
+                <div class="step-indicator">
+                    <span class="step active" data-step="1">Network</span>
+                    <span class="step" data-step="2">Wallets</span>
+                    <span class="step" data-step="3">Token</span>
+                    <span class="step" data-step="4">Review</span>
+                </div>
+            </div>
+
+            <div class="wizard-content">
+                <!-- Step 1: Network Selection -->
+                <div class="step-content active" id="step1">
+                    <h2>Select Network</h2>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="network" value="test" data-network="test">
+                            <span class="radio-text">Testnet</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="network" value="main" data-network="main">
+                            <span class="radio-text">Mainnet</span>
+                        </label>
+                    </div>
+                    <div class="warning mainnet-warning hidden">
+                        ⚠️ Warning: Mainnet transactions require real XRP and cannot be reversed.
+                    </div>
+                </div>
+
+                <!-- Step 2: Wallet Setup -->
+                <div class="step-content" id="step2">
+                    <h2>Wallet Setup</h2>
+                    
+                    <!-- Issuing Wallet Section -->
+                    <div class="wallet-section">
+                        <h3>Issuing Wallet</h3>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="issuing-wallet" value="new" data-wallet-type="new-issuing">
+                                <span class="radio-text">Create New Wallet</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="issuing-wallet" value="existing" data-wallet-type="existing-issuing">
+                                <span class="radio-text">Use Existing Wallet</span>
+                            </label>
+                        </div>
+                        <div id="issuing-wallet-details" class="wallet-details hidden">
+                            <!-- Dynamically filled based on selection -->
+                        </div>
+                    </div>
+                    
+                    <!-- Operating Wallet Section -->
+                    <div class="wallet-section">
+                        <h3>Operating Wallet</h3>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="operating-wallet" value="new" data-wallet-type="new-operating">
+                                <span class="radio-text">Create New Wallet</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="operating-wallet" value="existing" data-wallet-type="existing-operating">
+                                <span class="radio-text">Use Existing Wallet</span>
+                            </label>
+                        </div>
+                        <div id="operating-wallet-details" class="wallet-details hidden">
+                            <!-- Dynamically filled based on selection -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Token Configuration -->
+                <div class="step-content" id="step3">
+                    <h2>Token Configuration</h2>
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label for="currency-code">Currency Code (3-4 characters):</label>
+                            <input type="text" id="currency-code" maxlength="4">
+                            <div id="currency-code-validation" class="validation-message hidden"></div>
+                        </div>
+                        
+                        <div class="input-container">
+                            <label for="token-amount">Initial Token Amount:</label>
+                            <input type="number" id="token-amount" min="0">
+                        </div>
+                        
+                        <div class="input-container">
+                            <label for="token-decimals">Decimals:</label>
+                            <input type="number" id="token-decimals" min="0" max="15" value="6">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Review -->
+                <div class="step-content" id="step4">
+                    <h2>Review Configuration</h2>
+                    <div id="review-content">
+                        <!-- Dynamically filled with configuration summary -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="wizard-footer">
+                <button id="prevBtn" class="nav-btn" disabled>Previous</button>
+                <button id="nextBtn" class="nav-btn">Next</button>
+                <button id="createBtn" class="nav-btn hidden">Create Token</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal Dialog -->
+    <div id="confirmationModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>⚠️ Important: Save Account Seed</h3>
+            </div>
+            <div class="modal-body">
+                <p>Make sure you have securely saved the account seed for any new wallets you created.</p>
+                <p>This is the only way to recover your wallet and access your funds. It will not be shown again.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="modalCancelBtn" class="nav-btn">Go Back</button>
+                <button id="modalConfirmBtn" class="nav-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html> 
