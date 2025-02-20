@@ -8,10 +8,11 @@
     "dev": "NODE_ENV=development electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist && rimraf node_modules/.cache/electron-builder",
-    "build": "npm run clean && electron-builder --dir"
+    "build": "electron-builder build --win --dir",
+    "dist": "electron-builder"
   },
   "build": {
-    "appId": "com.xrpl.tokencreation",
+    "appId": "com.karlostavitch.xrpl-token-wizard",
     "productName": "XRPL Token Creation Wizard",
     "files": [
       "src/**/*",
@@ -21,7 +22,8 @@
       "output": "dist"
     },
     "win": {
-      "target": "dir"
+      "target": "portable",
+      "icon": "assets/icon.ico"
     }
   },
   "keywords": [
